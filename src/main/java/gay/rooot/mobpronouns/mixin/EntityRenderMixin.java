@@ -8,6 +8,7 @@ import net.minecraft.client.render.entity.EntityRenderDispatcher;
 import net.minecraft.client.render.entity.EntityRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.PlayerEntity;
 import org.joml.Matrix4f;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -35,7 +36,7 @@ public abstract class EntityRenderMixin<T extends Entity> {
         String text = ((WokeInterface) entity).getPronouns();
 
         double distance = this.dispatcher.getSquaredDistanceToCamera(entity);
-        if (distance > 64) return;
+        if (distance > 64 || entity instanceof PlayerEntity) return;
 
         boolean entitySneaking = entity.isSneaky();
         float labelHeight = entity.getNameLabelHeight();
