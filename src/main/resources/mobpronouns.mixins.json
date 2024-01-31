@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "gay.rooot.mobpronouns.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "EntityMixin"
+  ],
+  "client": [
+    "EntityRenderMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
